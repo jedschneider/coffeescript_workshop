@@ -1,0 +1,4 @@
+tmp/*
+.DS*
+app.js
+spec/javascripts/all-specs.js

@@ -1,0 +1,10 @@
+---
+source_groups:
+  -
+    type: coffeescript
+    src: "/src"
+    target-file: "app.js"
+  -
+    type: coffeescript
+    src: "spec/coffeescripts"
+    target-file: "spec/javascripts/all-specs.js"
