@@ -13,7 +13,8 @@ Getting Started:
 1. Clone this repo with git or download the most recent release (I will provide a zip package download link before the conference in case you don't have git installed).
 2. change into the directory
 3. run `java -jar instant-coffee-0.0.5-standalone.jar watch`
-4. open the project in your favorite text editor.
+4. to edit: open the project in your favorite text editor.
+5. to run the specs, open SpecRunner.html in your browser.
 
 A little longer intro:
 ----------------------
