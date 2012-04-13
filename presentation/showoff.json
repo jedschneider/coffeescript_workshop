@@ -1,1 +1,7 @@
-{ "name": "CoffeeScript Workshop", "sections": [ {"section":"intro"}, {"section" : "workflow"} ]}
+{ "name": "CoffeeScript Workshop", "sections": [ 
+  {"section": "agenda"},
+  {"section" : "materials"},
+  {"section":"intro"}, 
+  {"section" : "workflow"},
+  {"section" : "materials"},
+  {"section" : "features"} ]}

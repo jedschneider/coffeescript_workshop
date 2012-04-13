@@ -5,7 +5,7 @@ describe "variables", ->
   it "should allow basic assignment", ->
     foo = "foo"
 
-    expect(typeof foo).toEqual "string"
+    expect(typeof foo).toEqual "number"
 
   it "should do assingment inline ", ->
     result = otherResult = 45 + 78
@@ -21,7 +21,7 @@ describe "variables", ->
   it "should use variables with outside lexical scope", ->
     foo = "foo"
     callMe = ->
-      expect(foo).toEqual "foo"
+      expect(foo).toEqual  fillMeInWith "a string"
 
     callMe()
 
@@ -34,3 +34,25 @@ describe "variables", ->
     callMe()
 
     expect(foo).toEqual fillMeInWith "the right string"
+
+  describe "splats", ->
+    it "should handle a variable number of arguments", ->
+      materials = ["wheat", "salami", "cheese", "lettuce"]
+      [bread, meat, ingredients...] = materials
+      expect(bread).toEqual "wheat"
+      expect(meat).toEqual fillMeInWith "the right answer"
+      expect(ingredients.join(", and")).toEqual "the other answer"
+  
+  describe "ranges", ->
+    it "should slice an array", ->
+      arr = ["fe", "fi", "fo", "fum"]
+      expect(arr[1..2]).toEqual fillMeInWith "the subarray"
+      
+    it "should let me count", ->
+      double = (x)-> x * 2
+      expect(double num for num in [1..4]).toEqual [2, 4]
+      
+  describe "fat arrows", ->
+    
+  describe "@", ->
+    
