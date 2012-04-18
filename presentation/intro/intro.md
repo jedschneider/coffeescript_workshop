@@ -14,6 +14,7 @@
         });
     });
 
+!SLIDE code
 # Remove function and returns
     @@@ javascript
     describe("Jasmine", -> {
@@ -29,7 +30,15 @@
       it "makes testing JS awesome!", ->
         expect(yourCode).toBeLotsBetter()
 
+!SLIDE code
 # Compare to Original JavaScript
+coffeescript
+    @@@ coffeescript
+    describe "Jasmine", ->
+      it "makes testing JS awesome!", ->
+        expect(yourCode).toBeLotsBetter()
+
+original 
     @@@ javascript
     describe("Jasmine", function() {
       return it("makes testing JS awesome!",
@@ -37,40 +46,6 @@
           return expect(yourCode).toBeLotsBetter();
         });
     });
-
-!SLIDE subsection
-
-# All About Me #
-
-!SLIDE bullets
-
-# Jed Schneider #
-* Office of Biomedical Informatics Systems, Medical University of SC
-* Health Sciences South Carolina
-* Build Applications for Clinical Trial Research and Data Warehousing 
-  * Ruby, Rails, CoffeeScript, Clojure, CouchDB, mySQL
-
-!SLIDE bullets incremental
-# My work with CoffeeScript #
-* Part of a larger architectural shift
-  * moving towards richer clients
-  * emphasis on data and functions
-  * composite systems and languages
-
-* ~10 months of 'full time' experience
-
-!SLIDE commandline
-# My work with CoffeeScript #
-
-Jasmine Specs
-
-    $ find spec -name *.coffee | xargs wc -l
-      ... 8169 total
-
-Source Code
-
-    $ find src -name *.coffee | -xargs wc -l
-      ... 5386 total
 
 !SLIDE subsection
 # CoffeeScript Adoption #
