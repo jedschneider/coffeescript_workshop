@@ -81,9 +81,3 @@ original
       
       # or maybe
       _.map list, (item)-> _.pick(item, 'foo')
-
-!SLIDE bullets
-
-# Resources #
-
-* css : [railslove](http://github.com/railslove)

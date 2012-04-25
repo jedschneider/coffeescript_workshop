@@ -9,3 +9,11 @@
   * https://github.com/jashkenas/coffee-script/wiki/Build-tools
 * **instant coffee** [https://github.com/fredericksgary/instant-coffee](https://github.com/fredericksgary/instant-coffee)
   * java based, built on JCoffeeScript with some added features
+
+!SLIDE
+#Coffee REPL
+
+!SLIDE
+# Build Your Own Workflow
+
+Every team and situation may require something a little different
