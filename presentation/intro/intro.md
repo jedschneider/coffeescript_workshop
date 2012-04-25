@@ -38,7 +38,7 @@ coffeescript
       it "makes testing JS awesome!", ->
         expect(yourCode).toBeLotsBetter()
 
-original 
+original
     @@@ javascript
     describe("Jasmine", function() {
       return it("makes testing JS awesome!",
@@ -48,17 +48,10 @@ original
     });
 
 !SLIDE subsection
-# Design Patterns
+# Design
 > "The usefulness of speaking of patterns is to have a common terminology for discussing the situations designers already see over and over."
 
 > -wikipedia.org (design patterns)
-
-!SLIDE code
-# remember when this felt weird?
-    @@@javascript
-    $(document).ready( function(){
-      $("#content p").addClass("simple")
-    });
 
 !SLIDE bullets incremental
 # Design (Language, API, Patterns)
@@ -66,7 +59,7 @@ original
   * abstractions that are composable
   * abstractions that provide a more common interface (think icons or traffic signals)
 
-example:
+# remember when this felt weird?
      @@@javascript
      $(document).ready( function(){
        $("#content p").addClass("simple")
@@ -111,9 +104,14 @@ example:
 same loop in coffeescript
     @@@coffeescript
     arr = [0..4] #=> [0,1,2,3,4]
+
     otherArr = (a + 1 for a in arr) #=> [1,2,3,4,5]
+
+    #addOne = function(x){return x + 1}
     addOne = (x)-> x + 1
+
     console.log arr,
                 otherArr,
                 (addOne(a) for a in otherArr)
+                #(addOne a for a in otherArr)
     #=> [0,1,2,3,4], [1,2,3,4,5], [2,3,4,5,6]
