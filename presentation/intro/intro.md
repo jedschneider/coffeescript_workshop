@@ -48,36 +48,72 @@ original
     });
 
 !SLIDE subsection
-# CoffeeScript Adoption #
+# Design Patterns
+> "The usefulness of speaking of patterns is to have a common terminology for discussing the situations designers already see over and over."
 
-!SLIDE bullets incremental
-# CoffeeScript Adoption #
-
-* Quick and Enthusiastic
-  * adopted as a first class language in Rails 3.1
-* Not all positive: [A case against CoffeeScript](http://ryanflorence.com/2011/2012/case-against-coffeescript/)
-* Rhetorical Response: [A case for CoffeeScript](http://www.codethinked.com/a-case-for-using-coffeescript)
-* Reflective: "It's Just JavaScript"
-  * [CoffeeScript is for Closers](http://userinexperience.com/?p=732)
-  * **The rise of 'Build Your Own JavaScript'** [Jeremy Ashkenas](http://www.infoq.com/presentations/CoffeeScript)
-
-!SLIDE incremental bullets
-# CoffeeScript is only part of the solution #
-  * debugging is less of an issue with TDD (Test Driven Development)
-  * comprehension is augmented with other libraries that are more declarative (underscore.js, _eg_)
+> -wikipedia.org (design patterns)
 
 !SLIDE code
-# Alternative Comprehensions
+# remember when this felt weird?
+    @@@javascript
+    $(document).ready( function(){
+      $("#content p").addClass("simple")
+    });
 
-      @@@ coffeescript
-      list = [{foo : "bar"}, {foo : "baz"}]
-      
-      # built in comprehension 
-      item["foo"] for item in list #=> ["bar", "baz"]
-      
-      # underscore
-      # _.map(list, iterator, [context])
-      _.map list, (item)-> item["foo"]
-      
-      # or maybe
-      _.map list, (item)-> _.pick(item, 'foo')
+!SLIDE bullets incremental
+# Design (Language, API, Patterns)
+  * give up explicit control in favor of declaration and abstraction
+  * abstractions that are composable
+  * abstractions that provide a more common interface (think icons or traffic signals)
+
+example:
+     @@@javascript
+     $(document).ready( function(){
+       $("#content p").addClass("simple")
+     });
+
+!SLIDE bullets incremental
+# CoffeeScript is just JavaScript
+* the next level of abstraction
+* solving basic problems in JavaScript (generalized from jQuery) and extends functionality
+* mitigate inherent problems with JavaScript [JavaScript: The Good Parts by Douglas Crockford](http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742/ref=sr_1_1?ie=UTF8&qid=1335356270&sr=8-1)
+* but the process is in reach
+* `javascript <=> coffeescript <=> google closure <=> dart and clojurescript`
+
+!SLIDE subsection
+# Looping as an example of language extension
+
+!SLIDE execute
+# Basic JavaScript
+    @@@javascript
+    arr= [0,1,2,3,4]
+    otherArr = []
+    for(i=0; i<arr.length; i++){
+      otherArr[i] = arr[i] + 1;
+    }
+    // => 5
+    console.log(otherArr); // => [1, 2, 3, 4, 5]
+
+!SLIDE execute
+# First Step: Use An API
+    @@@javascript
+    arr= [0,1,2,3,4]
+    otherArr = []
+    $.each(arr, function(i){
+      otherArr[i] = arr[i] + 1;
+    })
+    //=> [0,1,2,3,4]
+    console.log(otherArr); // => [1, 2, 3, 4, 5]
+    console.log(arr);
+
+!SLIDE execute
+# Second Step: Make the Language Better
+same loop in coffeescript
+    @@@coffeescript
+    arr = [0..4] #=> [0,1,2,3,4]
+    otherArr = (a + 1 for a in arr) #=> [1,2,3,4,5]
+    addOne = (x)-> x + 1
+    console.log arr,
+                otherArr,
+                (addOne(a) for a in otherArr)
+    #=> [0,1,2,3,4], [1,2,3,4,5], [2,3,4,5,6]

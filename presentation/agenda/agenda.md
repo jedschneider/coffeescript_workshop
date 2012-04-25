@@ -1,6 +1,6 @@
 !SLIDE title
 # CoffeeScript #
-A Lexicon for JavaScript
+Better JavaScript Within Reach
 
 !SLIDE bullets
 # Agenda #
