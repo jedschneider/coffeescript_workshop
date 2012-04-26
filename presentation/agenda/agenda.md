@@ -2,6 +2,8 @@
 # CoffeeScript #
 Better JavaScript Within Reach
 
+.notes introduce myself, briefly experience with CS
+
 !SLIDE bullets
 # Agenda #
 
@@ -16,3 +18,7 @@ Better JavaScript Within Reach
 # Trying CoffeeScript - Hacker's Quickstart #
 
 * [coffeescript.org](http://coffeescript.org)
+
+![Andrew](../img/andrew.jpg)
+
+.notes created by Jeremy Ashkenas (Osh-ken-as), first release Christmas Day 2010

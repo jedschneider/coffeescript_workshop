@@ -14,21 +14,25 @@
         });
     });
 
-!SLIDE code
-# Remove function and returns
-    @@@ javascript
-    describe("Jasmine", -> {
-      it("makes testing JS awesome!", -> {
-        expect(yourCode).toBeLotsBetter();
-      });
-    });
+.notes two basic functions, relevant because we will use this lib later in the workshop. just exposure right now.
 
 !SLIDE code
-# Remove braces, semicolons, and parentheses
+# Remove semicolons, braces, and returns
+    @@@ javascript
+    describe("Jasmine", function
+      it("makes testing JS awesome!", function
+        expect(yourCode).toBeLotsBetter()
+      )
+    )
+
+!SLIDE code
+# Remove parentheses and replace function calls
     @@@ coffeescript
     describe "Jasmine", ->
       it "makes testing JS awesome!", ->
         expect(yourCode).toBeLotsBetter()
+
+.notes significant whitespace means that the compiler can recognize where the expression ends.
 
 !SLIDE code
 # Compare to Original JavaScript
@@ -47,11 +51,15 @@ original
         });
     });
 
+.notes without knowing anything else about the lang, there is already improvement with decreased S/N
+
 !SLIDE subsection
 # Design
 > "The usefulness of speaking of patterns is to have a common terminology for discussing the situations designers already see over and over."
 
 > -wikipedia.org (design patterns)
+
+.notes design addresses the needs at the moment. aesthetic and needs are subject to change
 
 !SLIDE bullets incremental
 # Design (Language, API, Patterns)
@@ -64,6 +72,8 @@ original
      $(document).ready( function(){
        $("#content p").addClass("simple")
      });
+
+.notes declarative selectors, implicit iteration, chaining
 
 !SLIDE bullets incremental
 # CoffeeScript is just JavaScript
@@ -104,14 +114,20 @@ original
 same loop in coffeescript
     @@@coffeescript
     arr = [0..4] #=> [0,1,2,3,4]
+    otherArr = (a + 1 for a in arr)
+    alert otherArr
 
-    otherArr = (a + 1 for a in arr) #=> [1,2,3,4,5]
-
+we can build on that though
+    @@@coffeescript
+    endOfRange = 4
     #addOne = function(x){return x + 1}
     addOne = (x)-> x + 1
+    otherArr = (addOne(a) for a in [0..endOfRange])
+    console.log otherArr, (addOne a for a in otherArr)
 
-    console.log arr,
-                otherArr,
-                (addOne(a) for a in otherArr)
-                #(addOne a for a in otherArr)
-    #=> [0,1,2,3,4], [1,2,3,4,5], [2,3,4,5,6]
+and we can still use the api if we want
+    @@@coffeescript
+    arr = [0..4]
+    otherArr = []
+    $.each arr, (i)-> otherArr[i] = arr[i] + 1
+    alert otherArr
